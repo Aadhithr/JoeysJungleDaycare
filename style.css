@@ -1,10 +1,15 @@
 body {
     font-family: 'Roboto', Arial, sans-serif;
-    background-color: #f4f1e7;
+    background-color: rgb(244, 241, 231);
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column; /* Stack content vertically on small screens */
+    flex-direction: column; 
+    overflow: auto;
+    background: linear-gradient(315deg, rgb(244, 241, 231) 3%, rgb(236, 206, 185) 48%, rgb(255, 210, 158) 100%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
 }
 
 .nav-logo a img {
@@ -18,10 +23,10 @@ body {
 nav {
     text-align: left;
     padding-top: 0;
-    height: auto; /* Allow the nav to grow as needed on small screens */
-    width: 100%; /* Full width nav bar on small screens */
-    position: relative; /* Static positioning on small screens */
-    background: linear-gradient(to right, #fdeed0 60%, transparent);
+    height: auto; 
+    width: 100%; 
+    position: relative; 
+    background: #fdeed0;
 }
 
 nav ul {
@@ -94,49 +99,84 @@ nav ul li a.active:after {
     
 }
 
-
-* {
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-}
-
-.intro {
+#branding {
+    background-color: rgba(247, 195, 161, 0.9);
+    color: #6d2e2e;
+    padding: 40px;
     position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    transition: 1s;
+    top: 40%;
+    left: 54%; 
+    transform: translate(-50%, -50%); 
+    width: 52%; 
+    height: auto; 
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#branding-main-text, #branding-sub-text {
+    display: inline-block; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    font-size: calc(5vw + 10px); 
 }
 
-
-.logo-span {
-    position: absolute;
-    font-family: 'Roboto', Arial, sans-serif;
-    top:40%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
+#branding-main-text {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px; 
+    height: 50px; 
+    overflow: hidden; 
 }
 
-.logotext {
-    position: relative;
-    display: inline-block;
-    bottom: -20px;
-    opacity: 0;
+#branding-sub-text {
+    font-size: 24px; 
+    font-weight: normal; 
 }
 
-.logo.act {
+@media (max-width: 599px) {
+    #branding {
+        display: none;
+    }
+}
+
+.wave {
+    background: rgba(255, 159, 152, 0.25); 
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 15em;
+    animation: wave 5s -1s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.5; 
     bottom: 0;
-    opacity: 1;
-    transition: ease-in-out 0.5s;
+    left: 0;
+    z-index: -1;
 }
 
-.logo.fade {
-    bottom: 150px;
-    opacity: 0;
-    transition: ease-in-out 0.5s;
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 1s linear reverse infinite;
+    opacity: 0.8;
 }
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 10s -1s reverse infinite;
+    opacity: 0.6; 
+}
+@keyframes wave {
+    0%, 100% {
+        transform: translateX(0%);
+    }
+    50% {
+        transform: translateX(-25%); 
+    }
+}
+
+
