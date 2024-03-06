@@ -1,4 +1,7 @@
+
+
 document.addEventListener("DOMContentLoaded", function() {
+    
     function removeActiveClass() {
         document.querySelectorAll('nav ul li a').forEach(function(link) {
             link.classList.remove('active');
