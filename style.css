@@ -34,7 +34,9 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column; /* Vertical menu on small screens */
+    flex-direction: column; /* Keeps vertical menu on small screens */
+    overflow-y: auto; /* Allows scrolling if many items */
+    max-height: 90vh; /* Prevents nav from taking up more than 90% of the viewport height */
 }
 
 nav ul li a {
@@ -42,7 +44,7 @@ nav ul li a {
     display: block;
     color: black;
     text-align: left;
-    padding: 14px 16px;
+    padding: 14px 16px; /* Increase padding for touch targets */
     text-decoration: none;
     transition: background-color 0.3s, border-radius 0.3s;
 }
@@ -78,28 +80,22 @@ nav ul li a.active:after {
     body {
         flex-direction: row; 
     }
-
     nav {
         height: 100vh;
-        width: 250px;
+        width: 250px; /* Fixed width for nav */
         position: fixed;
         left: 0;
         top: 0;
+        overflow-y: auto; /* Allows scrolling within the nav */
     }
-
     nav ul {
-        display: block;
+        display: block; /* Display nav items in a block */
     }
-
     #content {
-        margin-left: 250px; 
-        width: calc(100% - 250px);
+        margin-left: 250px;
+        width: calc(100% - 250px); /* Adjust content area when nav is visible */
     }
-
-
-    
 }
-
 #branding {
     background-color: rgba(235, 229, 225, 0.817);
     color: #1a3f25;
@@ -141,8 +137,12 @@ nav ul li a.active:after {
 }
 
 @media (max-width: 599px) {
+    nav ul li a {
+        padding: 10px; /* Slightly smaller padding */
+        font-size: 14px; /* Smaller font size to fit more items */
+    }
     #branding {
-        display: none;
+        display: none; /* Hide branding on small screens */
     }
 }
 
