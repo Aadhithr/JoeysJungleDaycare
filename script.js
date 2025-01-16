@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 
     var i = 0;
-    var txt = 'Joey\'s Jungle Daycare'; 
+    var txt = 'Smash Labs'; 
     var speed = 150; 
 
     function typeWriter() {
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
           
             if(sectionId !== 'home') {
-                const pdfPath = `pdf/${sectionId}.pdf`; 
+                const pdfPath = `pdfs/${sectionId}.pdf`; 
                 contentDiv.innerHTML = `<iframe src="${pdfPath}" style="width:100%; height:100vh;" frameborder="0"></iframe>`;
             } else {
             }
